@@ -21,7 +21,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 
-from ads.views import service
+
 from ads.views.locations import LocationViewSet
 
 router = routers.SimpleRouter()
@@ -30,10 +30,7 @@ router.register('location', LocationViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('', service.root),
-    path('cat/', include("ads.urls")),
-    path('ad/', include("ads.urls")),
-    path('user/', include("ads.urls")),
+    path('', include('ads.urls')),
 ]
 
 urlpatterns += router.urls
