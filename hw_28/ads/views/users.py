@@ -121,7 +121,7 @@ class UserUpdateView(UpdateView):
             try:
                 location_obj = Location.objects.get(name=location)
             except Location.DoesNotExist:
-                return JsonResponse({"error": "Skill no found"}, status=404)
+                return JsonResponse({"error": "Location no found"}, status=404)
             self.object.location.add(location_obj)
 
 
